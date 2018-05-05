@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue First Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-once>{{ title }}</h1>
+        <p>{{ sayHello() }} - <a v-bind:href="link" target="_blank">Google</a></p>
+        <hr>
+        <p v-html="completeLink"></p>
+        <p>Count: {{ counter }}</p>
+        <button v-on:click="plusOne(2)">Count +1</button>
+        <p v-on:mousemove="updateCoordinates">Mouse co-ordinates {{ x }} : {{ y }}
+            <span v-on:mousemove.stop="">DEAD SPOT</span>
+        </p>
+        <input type="text" v-on:keyup.enter="alertMe">
+    </div>
+    <script>
+        new Vue ({
+            el: "#app",
+            data: {
+                title: "Hello World",
+                link: "https://www.google.co.uk",
+                completeLink: '<a href="https://msn.com" target="_blank">MSN</a>',
+                counter: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                sayHello: function(){
+                    this.title = "Hello!";
+                    return this.title;
+                },
+                plusOne: function(increase){
+                    this.counter +=increase;
+                },
+                updateCoordinates: function(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                alertMe: function(){
+                    alert("Alert!!!");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
