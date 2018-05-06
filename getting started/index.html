@@ -11,15 +11,15 @@
 <body>
     <div id="app">
         <h1 v-once>{{ title }}</h1>
-        <p>{{ sayHello() }} - <a v-bind:href="link" target="_blank">Google</a></p>
+        <p>{{ sayHello() }} - <a :href="link" target="_blank">Google</a></p>
         <hr>
         <p v-html="completeLink"></p>
         <p>Count: {{ counter }}</p>
-        <button v-on:click="plusOne(2)">increase</button>
-        <p v-on:mousemove="updateCoordinates">Mouse co-ordinates {{ x }} : {{ y }}
-            <span v-on:mousemove.stop="">DEAD SPOT</span>
+        <button @click="plusOne(2)">increase</button>
+        <p @mousemove="updateCoordinates">Mouse co-ordinates {{ x }} : {{ y }}
+            <span @mousemove.stop="">DEAD SPOT</span>
         </p>
-        <input type="text" v-on:keyup.enter="alertMe">
+        <input type="text" @keyup.enter="alertMe">
     </div>
     <script>
         new Vue ({
