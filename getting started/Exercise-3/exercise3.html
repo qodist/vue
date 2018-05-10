@@ -7,13 +7,16 @@
     <script src="../../vue.js"></script>
 </head>
 <body>
-    <div id="app">
+    <div id="exercise">
         <div>
-            <h3>Reach a Total of 37</h3>
             <p>Current value: {{ value }}</p>
             <button @click="value += 5">Add 5</button>
             <button @click="value ++">Add 1</button>
-            <p>{{ result }}</p>
+            <p>{{ scoreCheck }}</p>
+        </div>
+        <div>
+            <input type="text" v-model="value">
+            <p>Set a value {{ value }}</p>
         </div>
     </div>
 
