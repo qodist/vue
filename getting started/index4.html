@@ -9,20 +9,18 @@
 </head>
 <body>
     <div id="app">
-        <div 
-            class="demo" 
-            @click="attachRed = !attachRed" 
-            :class="{red: attachRed}"></div>
+        <div class="demo" @click="switchRed = !switchRed" :class="divClasses"></div>
 
-        <div 
-            class="demo" 
-            @click="attachGreen = !attachGreen" 
-            :class="{green: attachGreen}"></div>
+        <div class="demo" :style="myStyle"></div>
 
-        <div class="demo"
-            @click="attachBlue = !attachBlue"
-            :class="{blue: attachBlue}"></div>
+        <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+
+        <div class="demo" :class="[color, {red: switchRed}]"></div>
+        <hr>
+        <input type="text" v-model="color">
+        <input type="text" v-model="width">
     </div>
+
     <script src="app4.js"></script>
 </body>
 </html>

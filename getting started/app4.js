@@ -1,8 +1,22 @@
 new Vue({
     el: "#app",
     data: {
-        attachRed: false,
-        attachGreen: false,
-        attachBlue: false
+        switchRed: false,
+        color: "blue",
+        width: 100
+    },
+    computed: {
+        divClasses: function(){
+            return {
+                red: this.switchRed,
+                blue: !this.switchRed
+            }
+        },
+        myStyle: function(){
+            return {
+                backgroundColor: this.color,
+                width: this.width + "px"
+            }
+        }
     }
 });
