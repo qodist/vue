@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First Exercise</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+    <div id="exercise">
+        <p>VueJS is awesome - {{ name }} ({{ age }})</p>
+        <p>{{ age }} times 3 = {{ age *3 }}</p>
+        <p>{{ randomNumber() }}</p>
+        <div>
+            <img v-bind:src="myPic" width="100px" height="100px">
+        </div>
+        <div>
+            <input type="text" v-bind:value="name">
+        </div>
+    </div>
+    
+    <script>
+        new Vue({
+            el: "#exercise",
+            data: {
+                name: "Andrew",
+                age: 42,
+                myPic: "http://channel.nationalgeographic.com/exposure/content/photo/photo/613951_powerful-bite_u4otpkuoohegc34cxym6cgqbe22ptt7hevj74cagwi5qbj2htjuq_757x425.jpg"
+            },
+            methods: {
+                randomNumber: function (){
+                    return Math.round(Math.random() * 100);
+                }
+            },
+        });
+    </script>
+</body>
+</html>
